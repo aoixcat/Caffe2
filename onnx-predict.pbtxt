@@ -1,0 +1,65 @@
+name: "torch-jit-export_predict"
+op {
+  input: "0"
+  input: "1"
+  input: "2"
+  output: "7"
+  name: ""
+  type: "FC"
+}
+op {
+  input: "7"
+  output: "8"
+  name: ""
+  type: "Relu"
+}
+op {
+  input: "8"
+  input: "3"
+  input: "4"
+  output: "9"
+  name: ""
+  type: "FC"
+}
+op {
+  input: "9"
+  output: "10"
+  name: ""
+  type: "Relu"
+}
+op {
+  input: "10"
+  input: "5"
+  input: "6"
+  output: "11"
+  name: ""
+  type: "FC"
+}
+op {
+  input: "11"
+  output: "OC2_DUMMY_0"
+  name: ""
+  type: "Softmax"
+  arg {
+    name: "axis"
+    i: 1
+  }
+}
+op {
+  input: "OC2_DUMMY_0"
+  output: "12"
+  name: ""
+  type: "Log"
+}
+device_option {
+  device_type: 0
+  cuda_gpu_id: 0
+}
+external_input: "0"
+external_input: "1"
+external_input: "2"
+external_input: "3"
+external_input: "4"
+external_input: "5"
+external_input: "6"
+external_output: "12"
